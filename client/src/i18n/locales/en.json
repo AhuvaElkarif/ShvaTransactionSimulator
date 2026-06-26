@@ -1,0 +1,74 @@
+{
+  "app": {
+    "name": "Shva",
+    "tagline": "The Payments Arena",
+    "title": "Transaction Approval Simulator",
+    "subtitle": "Submit a transaction for a region and time, and we'll check it against that region's local banking hours."
+  },
+  "nav": {
+    "login": "Log in",
+    "signup": "Sign up",
+    "logout": "Log out",
+    "greeting": "Hi, {{email}}"
+  },
+  "language": {
+    "label": "Language",
+    "en": "ENG",
+    "he": "Hebrew"
+  },
+  "simulator": {
+    "badge": "TRANSACTION SIMULATOR",
+    "question": "Will this transaction be approved?",
+    "heading": "New simulation",
+    "regionLabel": "label",
+    "regionPlaceholder": "Select a region",
+    "searchPlaceholder": "Search",
+    "timeLabel": "Enter Time",
+    "timeHint": "We convert today at this local time to the selected region's local time.",
+    "enterTime": "Enter time",
+    "hour": "Hour",
+    "minute": "Minute",
+    "now": "Now",
+    "submit": "Check approval",
+    "submitting": "Checking…",
+    "bankingHours": "Banking hours: 08:00–18:00 local time"
+  },
+  "result": {
+    "approved": "Approved",
+    "rejected": "Rejected",
+    "approvedReason": "{{region}} local time {{time}} is within banking hours (08:00–18:00).",
+    "rejectedReason": "{{region}} local time {{time}} is outside banking hours (08:00–18:00).",
+    "localTime": "Local time in {{region}}",
+    "submittedAt": "Submitted (UTC)"
+  },
+  "approved": {
+    "title": "Approved Transactions",
+    "empty": "No approved transactions yet — submit one above to see it here.",
+    "timeLabel": "Time",
+    "timeZoneLabel": "Time Zone",
+    "localTime": "Local time",
+    "submitted": "Submitted"
+  },
+  "auth": {
+    "loginTitle": "Welcome back",
+    "loginSubtitle": "Log in to run transaction simulations.",
+    "signupTitle": "Create your account",
+    "signupSubtitle": "Sign up to start simulating transactions.",
+    "email": "Email",
+    "password": "Password",
+    "loginButton": "Log in",
+    "signupButton": "Sign up",
+    "noAccount": "Don't have an account?",
+    "haveAccount": "Already have an account?",
+    "working": "Please wait…"
+  },
+  "common": {
+    "retry": "Try again",
+    "loading": "Loading…",
+    "error": "Something went wrong.",
+    "cancel": "Cancel",
+    "ok": "OK",
+    "clear": "Clear",
+    "noResults": "No results"
+  }
+}

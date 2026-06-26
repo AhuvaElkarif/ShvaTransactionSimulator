@@ -1,0 +1,53 @@
+# One-command stack: SQL Server + .NET API + React client.
+# Usage:  docker compose up --build
+# Then open the client at http://localhost:8080 (API/Swagger at http://localhost:5080/swagger).
+
+services:
+  db:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    environment:
+      ACCEPT_EULA: "Y"
+      MSSQL_SA_PASSWORD: "Shva_Str0ng_P@ss"
+    ports:
+      - "1433:1433"
+    volumes:
+      - mssql-data:/var/opt/mssql
+    healthcheck:
+      test: ["CMD-SHELL", "/opt/mssql-tools18/bin/sqlcmd -C -S localhost -U sa -P \"$$MSSQL_SA_PASSWORD\" -Q \"SELECT 1\" || exit 1"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+      start_period: 30s
+
+  api:
+    build:
+      context: ./server
+      dockerfile: Dockerfile
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      ConnectionStrings__DefaultConnection: "Server=db,1433;Database=ShvaTransactionSimulator;User Id=sa;Password=Shva_Str0ng_P@ss;TrustServerCertificate=True;Encrypt=False"
+      # CORS origins the API will accept (the dockerized client + the Vite dev server).
+      Cors__AllowedOrigins__0: "http://localhost:8080"
+      Cors__AllowedOrigins__1: "http://localhost:5173"
+      # Override the signing key for the container (use a real secret in production).
+      Jwt__Key: "shva-docker-signing-key-change-me-please-0123456789"
+    ports:
+      - "5080:8080"
+    depends_on:
+      db:
+        condition: service_healthy
+
+  client:
+    build:
+      context: ./client
+      dockerfile: Dockerfile
+      args:
+        # Browser-facing API URL (host port published by the api service).
+        VITE_API_BASE_URL: "http://localhost:5080"
+    ports:
+      - "8080:80"
+    depends_on:
+      - api
+
+volumes:
+  mssql-data:

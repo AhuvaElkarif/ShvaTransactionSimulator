@@ -1,0 +1,39 @@
+@host = http://localhost:5080
+
+### List supported regions
+GET {{host}}/api/regions
+Accept: application/json
+
+### Simulate — Israel 10:00 local (approved)
+POST {{host}}/api/transactions/simulate
+Content-Type: application/json
+
+{ "region": "IL", "timestamp": "2026-06-25T07:00:00Z" }
+
+### Simulate — Israel 23:00 local (rejected)
+POST {{host}}/api/transactions/simulate
+Content-Type: application/json
+
+{ "region": "IL", "timestamp": "2026-06-25T20:00:00Z" }
+
+### Simulate — Japan 09:00 local (approved)
+POST {{host}}/api/transactions/simulate
+Content-Type: application/json
+
+{ "region": "JP", "timestamp": "2026-06-25T00:00:00Z" }
+
+### Approved transactions (cards)
+GET {{host}}/api/transactions/approved?limit=20
+Accept: application/json
+
+### Sign up
+POST {{host}}/api/auth/signup
+Content-Type: application/json
+
+{ "email": "demo@shva.co.il", "password": "secret123" }
+
+### Log in
+POST {{host}}/api/auth/login
+Content-Type: application/json
+
+{ "email": "demo@shva.co.il", "password": "secret123" }

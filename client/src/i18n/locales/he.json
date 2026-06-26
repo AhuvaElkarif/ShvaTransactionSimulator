@@ -1,0 +1,74 @@
+{
+  "app": {
+    "name": "שבא",
+    "tagline": "זירת התשלומים",
+    "title": "סימולטור אישור עסקאות",
+    "subtitle": "שלחו עסקה עבור אזור ושעה, ונבדוק אותה מול שעות הבנקאות המקומיות של אותו אזור."
+  },
+  "nav": {
+    "login": "התחברות",
+    "signup": "הרשמה",
+    "logout": "התנתקות",
+    "greeting": "שלום, {{email}}"
+  },
+  "language": {
+    "label": "שפה",
+    "en": "ENG",
+    "he": "Hebrew"
+  },
+  "simulator": {
+    "badge": "סימולטור עסקאות",
+    "question": "האם העסקה הזו תאושר?",
+    "heading": "סימולציה חדשה",
+    "regionLabel": "אזור",
+    "regionPlaceholder": "בחרו אזור",
+    "searchPlaceholder": "חיפוש",
+    "timeLabel": "הזן זמן",
+    "timeHint": "אנו ממירים את היום בשעה המקומית הזו לשעה המקומית של האזור הנבחר.",
+    "enterTime": "הזינו שעה",
+    "hour": "שעה",
+    "minute": "דקה",
+    "now": "עכשיו",
+    "submit": "בדיקת אישור",
+    "submitting": "בודק…",
+    "bankingHours": "שעות בנקאות: 08:00–18:00 שעון מקומי"
+  },
+  "result": {
+    "approved": "אושרה",
+    "rejected": "נדחתה",
+    "approvedReason": "השעה המקומית ב{{region}} היא {{time}} ונמצאת בתוך שעות הבנקאות (08:00–18:00).",
+    "rejectedReason": "השעה המקומית ב{{region}} היא {{time}} ומחוץ לשעות הבנקאות (08:00–18:00).",
+    "localTime": "שעה מקומית ב{{region}}",
+    "submittedAt": "נשלחה (UTC)"
+  },
+  "approved": {
+    "title": "עסקאות מאושרות",
+    "empty": "אין עדיין עסקאות מאושרות — שלחו אחת למעלה כדי לראות אותה כאן.",
+    "timeLabel": "שעה",
+    "timeZoneLabel": "אזור זמן",
+    "localTime": "שעה מקומית",
+    "submitted": "נשלחה"
+  },
+  "auth": {
+    "loginTitle": "ברוכים השבים",
+    "loginSubtitle": "התחברו כדי להריץ סימולציות עסקה.",
+    "signupTitle": "יצירת חשבון",
+    "signupSubtitle": "הירשמו כדי להתחיל להריץ סימולציות.",
+    "email": "אימייל",
+    "password": "סיסמה",
+    "loginButton": "התחברות",
+    "signupButton": "הרשמה",
+    "noAccount": "אין לכם חשבון?",
+    "haveAccount": "כבר יש לכם חשבון?",
+    "working": "אנא המתינו…"
+  },
+  "common": {
+    "retry": "נסו שוב",
+    "loading": "טוען…",
+    "error": "משהו השתבש.",
+    "cancel": "ביטול",
+    "ok": "אישור",
+    "clear": "ניקוי",
+    "noResults": "אין תוצאות"
+  }
+}
