@@ -11,7 +11,6 @@ namespace Shva.Application;
 /// </summary>
 public static class DependencyInjection
 {
-    /// <summary>Registers Application services and FluentValidation validators.</summary>
     public static IServiceCollection AddApplication(this IServiceCollection services)
     {
         services.AddValidatorsFromAssembly(typeof(DependencyInjection).Assembly);

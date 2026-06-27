@@ -7,6 +7,5 @@ namespace Shva.Application.Common.Interfaces;
 /// </summary>
 public interface IJwtTokenService
 {
-    /// <summary>Creates a signed token for the user and reports its UTC expiry.</summary>
     (string Token, DateTimeOffset ExpiresAtUtc) CreateToken(User user);
 }

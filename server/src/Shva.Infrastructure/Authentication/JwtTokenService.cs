@@ -16,7 +16,6 @@ public sealed class JwtTokenService(IOptions<JwtOptions> options, IClock clock) 
 {
     private readonly JwtOptions _options = options.Value;
 
-    /// <inheritdoc />
     public (string Token, DateTimeOffset ExpiresAtUtc) CreateToken(User user)
     {
         var expiresAt = clock.UtcNow.AddMinutes(_options.ExpiryMinutes);

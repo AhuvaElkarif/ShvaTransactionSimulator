@@ -15,7 +15,6 @@ namespace Shva.Infrastructure;
 /// </summary>
 public static class DependencyInjection
 {
-    /// <summary>Registers all Infrastructure implementations against their Application interfaces.</summary>
     public static IServiceCollection AddInfrastructure(this IServiceCollection services, IConfiguration configuration)
     {
         var connectionString = configuration.GetConnectionString("DefaultConnection")

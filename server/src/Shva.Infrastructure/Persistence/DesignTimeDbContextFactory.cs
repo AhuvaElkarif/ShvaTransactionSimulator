@@ -13,7 +13,6 @@ public sealed class DesignTimeDbContextFactory : IDesignTimeDbContextFactory<App
     private const string LocalDbConnectionString =
         "Server=(localdb)\\MSSQLLocalDB;Database=ShvaTransactionSimulator;Trusted_Connection=True;TrustServerCertificate=True";
 
-    /// <inheritdoc />
     public AppDbContext CreateDbContext(string[] args)
     {
         var connectionString =

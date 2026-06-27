@@ -5,10 +5,6 @@ import { languageDirection, supportedLanguages, type Language } from '../i18n';
 const resolveLanguage = (raw: string): Language =>
   (supportedLanguages as readonly string[]).includes(raw) ? (raw as Language) : 'en';
 
-/**
- * Wraps i18next with direction handling: exposes the active language/direction, keeps the document's
- * `lang`/`dir` attributes in sync, and offers helpers to change or toggle the language.
- */
 export const useLanguage = () => {
   const { i18n } = useTranslation();
   const language = resolveLanguage(i18n.language);

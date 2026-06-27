@@ -17,16 +17,13 @@ export const timeToIsoInstant = (time: string): string => {
   return date.toISOString();
 };
 
-// Treats a bare wall-clock string (no offset) as UTC so Intl preserves the displayed numbers.
 const ensureUtc = (iso: string): string => (/(Z|[+-]\d{2}:?\d{2})$/.test(iso) ? iso : `${iso}Z`);
 
-/** Formats an ISO date-time as date + time, preserving the wall-clock numbers regardless of locale TZ. */
 export const formatDateTime = (iso: string, locale: string): string =>
   new Intl.DateTimeFormat(locale, { dateStyle: 'medium', timeStyle: 'short', timeZone: 'UTC' }).format(
     new Date(ensureUtc(iso)),
   );
 
-/** Formats only the time portion (e.g. "10:00") from an ISO date-time. */
 export const formatTime = (iso: string, locale: string): string =>
   new Intl.DateTimeFormat(locale, {
     hour: '2-digit',

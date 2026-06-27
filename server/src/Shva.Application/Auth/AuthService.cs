@@ -18,7 +18,6 @@ public sealed class AuthService(
     IJwtTokenService jwtTokenService,
     IClock clock) : IAuthService
 {
-    /// <inheritdoc />
     public async Task<AuthResponse> SignupAsync(SignupRequest request, CancellationToken cancellationToken = default)
     {
         await signupValidator.ValidateAndThrowAsync(request, cancellationToken);
@@ -41,7 +40,6 @@ public sealed class AuthService(
         return CreateAuthResponse(user);
     }
 
-    /// <inheritdoc />
     public async Task<AuthResponse> LoginAsync(LoginRequest request, CancellationToken cancellationToken = default)
     {
         await loginValidator.ValidateAndThrowAsync(request, cancellationToken);
@@ -49,7 +47,6 @@ public sealed class AuthService(
         var email = Normalize(request.Email);
         var user = await userRepository.GetByEmailAsync(email, cancellationToken);
 
-        // Same error whether the email is unknown or the password is wrong (avoids user enumeration).
         if (user is null || !passwordHasher.Verify(request.Password, user.PasswordHash))
         {
             throw new UnauthorizedException("Invalid email or password.");

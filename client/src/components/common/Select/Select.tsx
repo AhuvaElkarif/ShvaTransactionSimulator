@@ -12,7 +12,6 @@ interface SelectProps extends SelectHTMLAttributes<HTMLSelectElement> {
   placeholder?: string;
 }
 
-/** Labeled native select with an optional disabled placeholder option. */
 export const Select = ({ label, options, placeholder, value, ...selectProps }: SelectProps) => (
   <SelectWrapper>
     <SelectLabel>{label}</SelectLabel>

@@ -1,6 +1,5 @@
 import { AxiosError } from 'axios';
 
-/** Shape of the RFC 7807 problem responses the API returns. */
 interface ProblemDetails {
   title?: string;
   detail?: string;

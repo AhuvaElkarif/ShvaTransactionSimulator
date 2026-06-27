@@ -12,19 +12,16 @@ var builder = WebApplication.CreateBuilder(args);
 
 const string CorsPolicyName = "ClientApp";
 
-// ---- Configuration-driven CORS (the React dev server / container origin) ----
 var allowedOrigins = builder.Configuration.GetSection("Cors:AllowedOrigins").Get<string[]>()
                      ?? ["http://localhost:5173"];
 builder.Services.AddCors(options => options.AddPolicy(CorsPolicyName, policy =>
     policy.WithOrigins(allowedOrigins).AllowAnyHeader().AllowAnyMethod()));
 
-// ---- Application + Infrastructure layers (Clean Architecture composition) ----
 builder.Services.AddApplication();
 builder.Services.AddInfrastructure(builder.Configuration);
 
 builder.Services.AddControllers();
 
-// ---- JWT bearer authentication ----
 var jwtOptions = builder.Configuration.GetSection(JwtOptions.SectionName).Get<JwtOptions>()
                  ?? throw new InvalidOperationException("Missing 'Jwt' configuration section.");
 
@@ -45,7 +42,6 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
     });
 builder.Services.AddAuthorization();
 
-// ---- OpenAPI / Swagger with bearer support ----
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(options =>
 {
@@ -72,7 +68,6 @@ builder.Services.AddSwaggerGen(options =>
 
 var app = builder.Build();
 
-// Apply EF Core migrations on startup (retries until the database is reachable — helps under Docker).
 await DatabaseInitializer.MigrateAsync(app.Services);
 
 app.UseMiddleware<ExceptionHandlingMiddleware>();

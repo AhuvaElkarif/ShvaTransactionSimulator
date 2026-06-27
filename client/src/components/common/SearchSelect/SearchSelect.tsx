@@ -22,7 +22,6 @@ interface SearchSelectProps {
   disabled?: boolean;
 }
 
-/** Searchable single-select with a floating label and a clear button (matches the Figma control). */
 export const SearchSelect = ({
   label,
   placeholder,

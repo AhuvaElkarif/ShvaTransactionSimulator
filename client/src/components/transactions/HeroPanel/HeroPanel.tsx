@@ -2,7 +2,6 @@ import { useTranslation } from 'react-i18next';
 import { HeroIllustration } from '../../common/HeroIllustration/HeroIllustration';
 import { Badge, Panel, Question } from './HeroPanel.styles';
 
-/** Right-hand hero: the simulator badge, the headline question and the brand illustration. */
 export const HeroPanel = () => {
   const { t } = useTranslation();
 

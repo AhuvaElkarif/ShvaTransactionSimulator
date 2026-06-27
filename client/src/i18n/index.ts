@@ -7,7 +7,6 @@ import he from './locales/he.json';
 export const supportedLanguages = ['en', 'he'] as const;
 export type Language = (typeof supportedLanguages)[number];
 
-/** Text direction for each supported language. */
 export const languageDirection: Record<Language, 'ltr' | 'rtl'> = {
   en: 'ltr',
   he: 'rtl',

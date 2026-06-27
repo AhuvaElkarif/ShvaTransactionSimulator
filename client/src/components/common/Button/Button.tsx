@@ -9,7 +9,6 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   children: ReactNode;
 }
 
-/** App button with brand variants and an inline loading state. */
 export const Button = ({
   variant = 'primary',
   fullWidth = false,

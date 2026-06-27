@@ -4,7 +4,6 @@ import type { TransactionResult } from '../../../types/transaction';
 import { formatTime } from '../../../utils/datetime';
 import { Banner, Content, IconCircle, Reason, Title } from './ResultBanner.styles';
 
-/** Approved/Rejected outcome banner with a localized explanation. */
 export const ResultBanner = ({ result }: { result: TransactionResult }) => {
   const { t } = useTranslation();
   const { language } = useLanguage();

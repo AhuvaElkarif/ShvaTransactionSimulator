@@ -58,12 +58,9 @@ const baseTheme = {
 
 export type AppTheme = typeof baseTheme & { direction: Direction };
 
-/** Returns a theme bound to the given text direction. */
 export const buildTheme = (direction: Direction): AppTheme => ({ ...baseTheme, direction });
 
-/** Spacing helper: `space(4)` → "16px" (4px base grid). */
 export const space = (units: number): string => `${units * 4}px`;
 
-/** Media-query helper for min-width breakpoints. */
 export const media = (key: keyof typeof baseTheme.breakpoints): string =>
   `@media (min-width: ${baseTheme.breakpoints[key]})`;

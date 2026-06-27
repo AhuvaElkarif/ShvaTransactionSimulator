@@ -21,16 +21,13 @@ public sealed class TransactionService(
     ITransactionRepository repository,
     IClock clock) : ITransactionService
 {
-    /// <summary>Max number of approved transactions surfaced to the UI cards.</summary>
     public const int DefaultApprovedLimit = 20;
 
-    /// <inheritdoc />
     public async Task<TransactionResultDto> SimulateAsync(
         SimulateTransactionRequest request, Guid? userId, CancellationToken cancellationToken = default)
     {
         await validator.ValidateAndThrowAsync(request, cancellationToken);
 
-        // Validator guarantees the region is supported, so Find never returns null here.
         var region = RegionCatalog.Find(request.Region)!;
 
         var submittedUtc = request.Timestamp.ToUniversalTime();
@@ -55,7 +52,6 @@ public sealed class TransactionService(
         };
     }
 
-    /// <inheritdoc />
     public async Task<IReadOnlyList<ApprovedTransactionDto>> GetApprovedAsync(
         int limit, CancellationToken cancellationToken = default)
     {

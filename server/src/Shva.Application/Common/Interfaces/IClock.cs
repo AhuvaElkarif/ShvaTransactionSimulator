@@ -5,6 +5,5 @@ namespace Shva.Application.Common.Interfaces;
 /// </summary>
 public interface IClock
 {
-    /// <summary>The current instant in UTC.</summary>
     DateTimeOffset UtcNow { get; }
 }

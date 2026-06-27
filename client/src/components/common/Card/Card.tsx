@@ -6,7 +6,6 @@ interface CardProps {
   className?: string;
 }
 
-/** Elevated surface container used for panels and the simulator form. */
 export const Card = ({ children, className }: CardProps) => (
   <StyledCard className={className}>{children}</StyledCard>
 );

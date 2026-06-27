@@ -3,7 +3,6 @@ import { useLanguage } from '../../../hooks/useLanguage';
 import { supportedLanguages } from '../../../i18n';
 import { ToggleGroup, ToggleOption } from './LanguageToggle.styles';
 
-/** EN / עברית switch that drives both translations and LTR/RTL layout. */
 export const LanguageToggle = () => {
   const { t } = useTranslation();
   const { language, changeLanguage } = useLanguage();

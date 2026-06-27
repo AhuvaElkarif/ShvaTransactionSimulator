@@ -9,14 +9,12 @@ namespace Shva.Infrastructure.Persistence.Repositories;
 /// <summary>EF Core implementation of <see cref="ITransactionRepository"/>.</summary>
 public sealed class TransactionRepository(AppDbContext dbContext) : ITransactionRepository
 {
-    /// <inheritdoc />
     public async Task AddAsync(Transaction transaction, CancellationToken cancellationToken = default)
     {
         dbContext.Transactions.Add(transaction);
         await dbContext.SaveChangesAsync(cancellationToken);
     }
 
-    /// <inheritdoc />
     public async Task<IReadOnlyList<Transaction>> GetApprovedAsync(int limit, CancellationToken cancellationToken = default)
         => await dbContext.Transactions
             .AsNoTracking()

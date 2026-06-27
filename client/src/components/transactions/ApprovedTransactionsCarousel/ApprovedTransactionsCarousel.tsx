@@ -15,7 +15,6 @@ import {
 
 const SCROLL_STEP = 280;
 
-/** Horizontal, arrow-navigable carousel of approved transactions. */
 export const ApprovedTransactionsCarousel = () => {
   const { t } = useTranslation();
   const { data, isLoading, isError, refetch } = useApprovedTransactions();

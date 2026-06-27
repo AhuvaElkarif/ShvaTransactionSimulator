@@ -4,7 +4,6 @@ import { setAuthTokenProvider } from '../api/client';
 import type { AuthResponse, AuthUser } from '../types/auth';
 import { AUTH_STORAGE_KEY, AuthContext, type AuthContextValue } from './authContext';
 
-/** Reads a non-expired session from storage, if present. */
 const loadStoredUser = (): AuthUser | null => {
   try {
     const raw = localStorage.getItem(AUTH_STORAGE_KEY);
@@ -20,10 +19,6 @@ const loadStoredUser = (): AuthUser | null => {
   }
 };
 
-/**
- * Holds the authenticated session and keeps the API client's bearer token in sync. The token is
- * read lazily by the axios interceptor through a ref, so requests always use the latest value.
- */
 export const AuthProvider = ({ children }: { children: ReactNode }) => {
   const [user, setUser] = useState<AuthUser | null>(loadStoredUser);
 

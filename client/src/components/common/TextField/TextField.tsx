@@ -7,7 +7,6 @@ interface TextFieldProps extends InputHTMLAttributes<HTMLInputElement> {
   error?: string;
 }
 
-/** Labeled text input with optional hint/error text. */
 export const TextField = ({ label, hint, error, ...inputProps }: TextFieldProps) => (
   <FieldWrapper>
     <FieldLabel>{label}</FieldLabel>

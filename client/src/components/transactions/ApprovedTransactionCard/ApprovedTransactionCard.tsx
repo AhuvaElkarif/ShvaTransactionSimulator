@@ -4,7 +4,6 @@ import type { ApprovedTransaction } from '../../../types/transaction';
 import { formatTime } from '../../../utils/datetime';
 import { CardItem, Label, TimeLine, ZoneLine } from './ApprovedTransactionCard.styles';
 
-/** A single approved-transaction card: "Time: HH:mm" and "Time Zone: <region>". */
 export const ApprovedTransactionCard = ({ transaction }: { transaction: ApprovedTransaction }) => {
   const { t } = useTranslation();
   const { language } = useLanguage();

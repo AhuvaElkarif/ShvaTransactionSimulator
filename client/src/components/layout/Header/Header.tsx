@@ -5,7 +5,6 @@ import { Logo } from '../../common/Logo/Logo';
 import { useAuth } from '../../../hooks/useAuth';
 import { Greeting, HeaderActions, HeaderBar, UserArea } from './Header.styles';
 
-/** App header: brand, language toggle and (when authenticated) the signed-in user + logout. */
 export const Header = () => {
   const { t } = useTranslation();
   const { user, isAuthenticated, logout } = useAuth();

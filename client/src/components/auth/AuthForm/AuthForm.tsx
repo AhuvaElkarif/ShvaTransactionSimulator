@@ -14,7 +14,6 @@ import { ErrorText, Form, Subtitle, SwitchLink, SwitchRow, Title } from './AuthF
 
 type AuthMode = 'login' | 'signup';
 
-/** Shared login/signup form. On success it stores the session and routes to the simulator. */
 export const AuthForm = ({ mode }: { mode: AuthMode }) => {
   const isLogin = mode === 'login';
   const { t } = useTranslation();

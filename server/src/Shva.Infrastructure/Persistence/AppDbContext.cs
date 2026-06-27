@@ -9,13 +9,10 @@ namespace Shva.Infrastructure.Persistence;
 /// </summary>
 public sealed class AppDbContext(DbContextOptions<AppDbContext> options) : DbContext(options)
 {
-    /// <summary>All submitted transactions (approved and rejected).</summary>
     public DbSet<Transaction> Transactions => Set<Transaction>();
 
-    /// <summary>Registered user accounts.</summary>
     public DbSet<User> Users => Set<User>();
 
-    /// <inheritdoc />
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         base.OnModelCreating(modelBuilder);

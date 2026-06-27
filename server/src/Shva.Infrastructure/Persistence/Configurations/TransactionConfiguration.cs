@@ -15,7 +15,6 @@ public sealed class TransactionConfiguration : IEntityTypeConfiguration<Transact
         builder.Property(t => t.RegionKey).IsRequired().HasMaxLength(8);
         builder.Property(t => t.RegionName).IsRequired().HasMaxLength(64);
 
-        // Persist the enum as its readable name so the table is self-describing.
         builder.Property(t => t.Status)
             .IsRequired()
             .HasConversion<string>()
@@ -25,7 +24,6 @@ public sealed class TransactionConfiguration : IEntityTypeConfiguration<Transact
         builder.Property(t => t.SubmittedAtUtc).IsRequired();
         builder.Property(t => t.CreatedAtUtc).IsRequired();
 
-        // Optimizes the "most recent approved transactions" query that powers the UI cards.
         builder.HasIndex(t => new { t.Status, t.CreatedAtUtc });
 
         builder.HasOne(t => t.User)

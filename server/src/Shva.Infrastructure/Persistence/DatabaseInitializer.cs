@@ -10,7 +10,6 @@ namespace Shva.Infrastructure.Persistence;
 /// </summary>
 public static class DatabaseInitializer
 {
-    /// <summary>Migrates the database, retrying transient connection failures.</summary>
     public static async Task MigrateAsync(
         IServiceProvider services, int maxAttempts = 12, CancellationToken cancellationToken = default)
     {

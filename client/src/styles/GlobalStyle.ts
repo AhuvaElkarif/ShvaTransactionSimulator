@@ -1,6 +1,5 @@
 import { createGlobalStyle } from 'styled-components';
 
-/** App-wide reset and base styles, theme-aware (colors, direction, fonts). */
 export const GlobalStyle = createGlobalStyle`
   *, *::before, *::after {
     box-sizing: border-box;
